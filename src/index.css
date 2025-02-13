@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,24 +47,51 @@
   opacity: 0.8;
 }
 
-.flower::before {
+.flower::before,
+.flower::after,
+.flower::before:first-of-type,
+.flower::after:first-of-type {
   content: '';
   position: absolute;
   width: 20px;
   height: 20px;
   background: #FFDEE2;
   border-radius: 50%;
-  transform: translateX(-10px);
+}
+
+/* Horizontal petals */
+.flower::before {
+  transform: translateX(-15px);
 }
 
 .flower::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #FFDEE2;
-  border-radius: 50%;
-  transform: translateX(10px);
+  transform: translateX(15px);
+}
+
+/* Vertical petals */
+.flower::before:first-of-type {
+  transform: translateY(-15px);
+}
+
+.flower::after:first-of-type {
+  transform: translateY(15px);
+}
+
+/* Diagonal petals */
+.flower::before:last-of-type {
+  transform: translate(-12px, -12px);
+}
+
+.flower::after:last-of-type {
+  transform: translate(12px, 12px);
+}
+
+.flower::before:nth-of-type(2) {
+  transform: translate(-12px, 12px);
+}
+
+.flower::after:nth-of-type(2) {
+  transform: translate(12px, -12px);
 }
 
 @keyframes float {
